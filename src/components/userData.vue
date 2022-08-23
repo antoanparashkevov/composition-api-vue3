@@ -6,7 +6,12 @@
 <script>
 export default {
   name: 'userData',
-  props:['userName','userAge']
+  props:['firstName','lastName','userAge'],
+  computed:{
+    userName(){
+      return this.firstName + " " + this.lastName
+    }
+  }
 };
 </script>
 

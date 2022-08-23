@@ -1,6 +1,6 @@
 <template>
   <section class='container'>
-   <user-data :user-name='uName' :user-age='user.userAge'></user-data>
+   <user-data :first-name='firstName' :last-name='lastName' :user-age='user.userAge'></user-data>
     <button @click='setNewAge'>Click me</button>
     <div>
       <input type='text' placeholder='First Name' v-model='firstName'>
@@ -67,7 +67,8 @@ export default {
       setNewAge: setAge,
       firstName,
       setLastName,
-      lastNameInput
+      lastNameInput,
+      lastName
     };
   }
   // data() {
