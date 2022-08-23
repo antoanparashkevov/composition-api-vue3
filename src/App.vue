@@ -2,6 +2,7 @@
   <section class="container">
     <h2>{{ user.userName }}</h2>
     <p>{{user.userAge}}</p>
+    <button @click='setNewAge'>Click me</button>
   </section>
 </template>
 
@@ -17,13 +18,15 @@ export default {
       userName:'Antoan',
       userAge:21
     })
-    console.log(user)
 
-      setTimeout(function(){
-        user.userName = 'Test'
-        user.userAge = 22
-      },2000)
-    return {user:user}
+    function setAge(){
+      user.userAge = 22
+    }
+      // setTimeout(function(){
+      //   user.userName = 'Test'
+      //   user.userAge = 22
+      // },2000)
+    return {user:user, setNewAge:setAge}
   }
   // data() {
   //   return {
