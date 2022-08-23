@@ -1,6 +1,7 @@
 <template>
   <section class="container">
     <h2>{{ userName }}</h2>
+    <p>{{userAge}}</p>
   </section>
 </template>
 
@@ -10,11 +11,13 @@ export default {
 
   setup(){
     const uName = ref('Antoan')
+    const uAge = ref(21)
 
       setTimeout(function(){
         uName.value = 'Test'
+        uAge.value = 22
       },2000)
-    return {userName: uName}
+    return {userName: uName, userAge: uAge}
   }
   // data() {
   //   return {
