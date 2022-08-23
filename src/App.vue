@@ -11,6 +11,9 @@ export default {
   setup(){
     const uName = ref('Antoan')
 
+      setTimeout(function(){
+        uName.value = 'Test'
+      },2000)
     return {userName: uName}
   }
   // data() {
