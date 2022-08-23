@@ -4,8 +4,8 @@
     <p>{{ user.userAge }}</p>
     <button @click='setNewAge'>Click me</button>
     <div>
-      <input type='text' placeholder='First Name' @input='setFirstName'>
-      <input type='text' placeholder='Last Name' @input='setLastName'>
+      <input type='text' placeholder='First Name' v-model='firstName'>
+      <input type='text' placeholder='Last Name' v-model='lastName'>
     </div>
   </section>
 </template>
@@ -33,14 +33,14 @@ export default {
       user.userAge = 22;
     }
 
-    function setFirstName(event) {
-      firstName.value = event.target.value;
-    }
-
-    function setLastName(event) {
-      lastName.value = event.target.value;
-
-    }
+    // function setFirstName(event) {
+    //   firstName.value = event.target.value;
+    // }
+    //
+    // function setLastName(event) {
+    //   lastName.value = event.target.value;
+    //
+    // }
 
     // setTimeout(function(){
     //   user.userName = 'Test'
@@ -51,9 +51,8 @@ export default {
       uName,
       user: user,
       setNewAge: setAge,
-      setLastName,
-      setFirstName
-
+      firstName,
+      lastName
     };
   }
   // data() {
