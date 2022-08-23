@@ -5,12 +5,19 @@
 </template>
 
 <script>
+import {ref } from 'vue'
 export default {
-  data() {
-    return {
-      userName: 'Maximilian',
-    };
-  },
+
+  setup(){
+    const uName = ref('Antoan')
+
+    return {userName: uName}
+  }
+  // data() {
+  //   return {
+  //     userName: 'Maximilian',
+  //   };
+  // },
 };
 </script>
 
