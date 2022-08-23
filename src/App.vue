@@ -1,32 +1,60 @@
 <template>
-  <section class="container">
-    <h2>{{ user.userName }}</h2>
-    <p>{{user.userAge}}</p>
+  <section class='container'>
+    <h2>{{ uName }}</h2>
+    <p>{{ user.userAge }}</p>
     <button @click='setNewAge'>Click me</button>
+    <div>
+      <input type='text' placeholder='First Name' @input='setFirstName'>
+      <input type='text' placeholder='Last Name' @input='setLastName'>
+    </div>
   </section>
 </template>
 
 <script>
-import {reactive } from 'vue'
+import { computed, reactive, ref } from 'vue';
+
 export default {
 
-  setup(){
+  setup() {
     // const uName = ref('Antoan')
     // const uAge = ref(21)
-
+    const firstName = ref('');
+    const lastName = ref('');
     const user = reactive({
-      userName:'Antoan',
-      userAge:21
-    })
+      // userName:'Antoan',
+      userAge: 21
+    });
 
-    function setAge(){
-      user.userAge = 22
+    const uName = computed(function() {
+      return firstName.value + " " +  lastName.value;
+    });
+
+    function setAge() {
+      user.userAge = 22;
     }
-      // setTimeout(function(){
-      //   user.userName = 'Test'
-      //   user.userAge = 22
-      // },2000)
-    return {user:user, setNewAge:setAge}
+
+    function setFirstName(event) {
+      firstName.value = event.target.value;
+    }
+
+    function setLastName(event) {
+      lastName.value = event.target.value;
+
+    }
+
+    // setTimeout(function(){
+    //   user.userName = 'Test'
+    //   user.userAge = 22
+    // },2000)
+
+    return {
+      uName,
+      user: user,
+      setNewAge: setAge,
+      setLastName,
+      setFirstName
+
+    };
   }
   // data() {
   //   return {
