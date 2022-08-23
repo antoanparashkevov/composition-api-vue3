@@ -1,18 +1,20 @@
 <template>
   <h2>{{ userName }}</h2>
-  <p>{{ userAge }}</p>
+  <p>{{ age }}</p>
 </template>
 
 <script>
-import {computed} from 'vue';
+import {computed,inject} from 'vue';
 
 export default {
-  props:['firstName','lastName','userAge'],
+  props:['firstName','lastName'],
   setup(props){
     const userName = computed(function(){
       return props.firstName + " " + props.lastName;
     })
-    return {userName}
+
+    const age = inject('userAge')
+    return {userName,age}
   }
 };
 </script>
